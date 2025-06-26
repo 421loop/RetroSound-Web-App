@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroSound - Smart Voice Recorder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Permission Screen -->
+        <div id="permissionScreen">
+            <div class="header">
+                <h1 class="app-title">Smart Voice Recorder</h1>
+                <p class="app-subtitle">Never miss the beginning of your recordings</p>
+            </div>
+
+            <div class="microphone-icon">🎤</div>
+
+            <p class="permission-text">This app needs microphone access to record audio.</p>
+            <p class="privacy-text">Your privacy is protected - recordings stay on your device.</p>
+
+            <button class="enable-btn" onclick="requestMicrophonePermission()">
+                Enable Microphone
+            </button>
+        </div>
+
+        <!-- Main App -->
+        <div id="mainApp" class="main-app">
+            <div class="status-card">
+                <div class="status-indicator">
+                    <div class="status-dot idle" id="statusDot"></div>
+                    <span class="status-text" id="statusText">Ready to record</span>
+                </div>
+                <div class="buffer-info" id="bufferInfo">
+                    Buffer stores last 30 seconds
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="record-button" id="recordButton" onclick="handleButtonPress()">
+                    <div class="button-icon">🎤</div>
+                    <div class="button-text">Start Listening</div>
+                </button>
+            </div>
+
+            <div class="settings-panel">
+                <div class="setting-row">
+                    <span class="setting-label">Buffer Duration</span>
+                    <span class="setting-value">30 seconds</span>
+                </div>
+                <div class="setting-row">
+                    <span class="setting-label">Recording Extension</span>
+                    <span class="setting-value">10 seconds</span>
+                </div>
+                <div class="setting-row">
+                    <span class="setting-label">Audio Quality</span>
+                    <span class="setting-value">16kHz Mono</span>
+                </div>
+            </div>
+
+            <div class="recordings-list" id="recordingsList"></div>
+        </div>
+
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+        <div class="notification" id="notification"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
